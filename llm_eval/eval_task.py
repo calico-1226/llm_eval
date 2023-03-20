@@ -37,9 +37,9 @@ import bigbench.api.results as results_api
 
 import custom_models.Flan_T5_model as flan_models
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["CUDA_VISIBLE_DEVICES"] = "6,7"
 
-model_name = "google/flan-t5-small"
+model_name = "google/flan-t5-large"
 FLAGS = absl.flags.FLAGS
 
 absl.flags.DEFINE_string(

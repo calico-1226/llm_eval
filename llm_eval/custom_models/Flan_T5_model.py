@@ -87,7 +87,9 @@ class BIGBenchHF(model.Model):
         self._device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self._model_name = model_name
         self._max_length = max_length
-        self._model = AutoModelForSeq2SeqLM.from_pretrained(model_name).to(self._device)
+        self._model = AutoModelForSeq2SeqLM.from_pretrained(
+            model_name, device_map="auto"
+        )
         self._tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     def model_data(self) -> model.ModelData:
@@ -129,7 +131,7 @@ class BIGBenchHF(model.Model):
         for idx, prompt in enumerate(input_list):
             input = self._tokenizer(prompt, return_tensors="pt").to(self._device)
             response = self._model.generate(**input)
-            response = self._tokenizer.batch_decode(response, skip_special_tokens=True)
+            response = self._tokenizer.decode(response[0], skip_special_tokens=True)
             generated.append(response)
 
         if isinstance(inputs, str):
@@ -145,7 +147,7 @@ class BIGBenchHF(model.Model):
         self,
         inputs: Union[str, List[str]],
         targets: Union[List[str], List[List[str]]],
-        batch_size: int = 64,
+        batch_size: int = 16,
         absolute_normalization: Optional[bool] = False,
     ) -> Union[List[float], List[List[float]]]:
         """Computes conditional log probabilities of targets given inputs.
