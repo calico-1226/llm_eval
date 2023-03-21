@@ -1,5 +1,6 @@
 ##### Project Specification #####
-**/results
+# **/results
+**/full-log*
 
 ##### Python.gitignore #####
 # Byte-compiled / optimized / DLL files

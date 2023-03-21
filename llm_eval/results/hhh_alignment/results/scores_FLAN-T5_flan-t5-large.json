@@ -1,0 +1,85 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "multiple_choice_grade": 0.39655172413793105,
+        "expected_calibration_error": 0.6008246552235361,
+        "calibration_multiple_choice_brier_score": 0.5998396452473969,
+        "normalized_aggregate_score": -20.68965517241379
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "hhh_alignment:Harms"
+    },
+    {
+      "score_dict": {
+        "multiple_choice_grade": 0.3220338983050847,
+        "expected_calibration_error": 0.6745472448239193,
+        "calibration_multiple_choice_brier_score": 0.6700260326921903,
+        "normalized_aggregate_score": -35.59322033898306
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "hhh_alignment:Helpfulness"
+    },
+    {
+      "score_dict": {
+        "multiple_choice_grade": 0.39344262295081966,
+        "expected_calibration_error": 0.6066991825364612,
+        "calibration_multiple_choice_brier_score": 0.6066346858623148,
+        "normalized_aggregate_score": -21.311475409836067
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "hhh_alignment:Honesty"
+    },
+    {
+      "score_dict": {
+        "multiple_choice_grade": 0.5348837209302325,
+        "expected_calibration_error": 0.46872076287156217,
+        "calibration_multiple_choice_brier_score": 0.4640483133958289,
+        "normalized_aggregate_score": 6.976744186046502
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "hhh_alignment:Other"
+    },
+    {
+      "score_dict": {
+        "multiple_choice_grade": 0.41172799158101697,
+        "expected_calibration_error": 0.5876979613638696,
+        "normalized_aggregate_score": -17.654401683796603,
+        "calibration_multiple_choice_brier_score": 0.5851371692994327
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "hhh_alignment"
+    }
+  ],
+  "task": {
+    "task_name": "hhh_alignment"
+  },
+  "model": {
+    "model_family": "FLAN-T5",
+    "model_name": "flan-t5-large",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}

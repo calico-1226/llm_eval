@@ -14,6 +14,34 @@ import bigbench.api.util as util
 import bigbench.models.query_logging_model as query_logging_model
 import bigbench.api.results as results_api
 
+tasks = [
+    # alignment
+    # "convinceme",
+    "hhh_alignment",
+    # social bias
+    "bbq_lite_json",
+    "diverse_social_bias",
+    # racial bias
+    "bias_from_probabilities",
+    "unqover",
+    # gender bias
+    "gender_sensitivity_english",
+    "linguistic_mappings",
+    # religious bias
+    "muslim_violence_bias",
+    # toxicity
+    "hinglish_toxicity",
+    # inclusion
+    "gender_inclusive_sentences_german",
+    # truthfulness
+    "fact_checker",
+    "truthful_qa",
+    # human-like behavior
+    "causal_judgment",
+    # emotional intelligence
+    "dark_humor_detection",
+]
+
 
 def _sanitize_results(scores: List[task_api.ScoreData]) -> List[task_api.ScoreData]:
     sanitized = []
@@ -64,16 +92,23 @@ def _argument():
         help="Name of the model to evaluate.",
     )
     parser.add_argument(
-        "--task_name",
+        "--task_names",
+        nargs="+",
         type=str,
-        default="bbq_lite_json",
+        default=tasks,
         help="Name of the task to evaluate.",
     )
     parser.add_argument(
         "--gpu_id",
         type=str,
-        default="7",
+        default="0,1",
         help="GPU IDs to use.",
+    )
+    parser.add_argument(
+        "--batch_size",
+        type=int,
+        default=32,
+        help="Batch size to use.",
     )
     parser.add_argument(
         "--output_dir",
@@ -102,91 +137,93 @@ def _argument():
 
 if __name__ == "__main__":
     args, unparsed_args = _argument()
+    print(f"args: {args}")
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu_id
-
-    task_module_name = f"bigbench.benchmark_tasks.{args.task_name}"
-    task_module = importlib.import_module(task_module_name)
-
-    module_path = list(task_module.__path__)[0]
-    json_path = os.path.join(module_path, "task.json")
-    task_submodule_name = f"{task_module_name}.task"
-
-    output_dir = os.path.abspath(os.path.expanduser(args.output_dir))
-    if os.path.exists(json_path):
-        task = json_task.JsonTask(
-            json_path,
-            max_examples=args.max_examples,
-            # shot_list=list(map(int, [0])),
-        )
-    else:
-        task = util.load_programmatic_task(task_submodule_name)
 
     if "flan-t5" in args.model_name:
         from custom_models.flan_t5 import FlanT5
 
-        model = FlanT5(args.model_name)
+        model = FlanT5(args.model_name, batch_size=args.batch_size)
     else:
         raise ValueError(f"Model {args.model_name} not supported.")
 
-    model = query_logging_model.QueryLoggingModel(model)
-    results_data = results_api.ResultsFileData(
-        scores=[],
-        task=results_api.TaskData(args.task_name),
-        model=model.model_data(),
-        queries=[],
-    )
+    for task_name in args.task_names:
+        print("-" * 80)
+        print(f"evaluating {args.model_name} on {task_name}")
+        task_module_name = f"bigbench.benchmark_tasks.{task_name}"
+        task_module = importlib.import_module(task_module_name)
 
-    print("-" * 80)
-    print(f"evaluating {args.model_name}...")
-    results = task.evaluate_model(model, max_examples=args.max_examples)
+        module_path = list(task_module.__path__)[0]
+        json_path = os.path.join(module_path, "task.json")
+        task_submodule_name = f"{task_module_name}.task"
 
-    if isinstance(results, list):
-        results_list = results
-    else:
-        results_list = [results]
-
-    results_list = _sanitize_results(scores=results_list)
-
-    results_list = results_api.add_aggregate_scores(
-        task_name=args.task_name, scores=results_list
-    )
-
-    print(f"results:")
-    for r in results_list:
-        print(f"{pp.pformat(r.score_dict)}")
-
-    results_data.scores = results_list
-
-    results_dir = os.path.join(output_dir, os.path.split(module_path)[1], "results")
-    os.makedirs(results_dir, mode=0o777, exist_ok=True)
-
-    try:
-        os.chmod(results_dir, 0o777)
-    except PermissionError as e:
-        pass  # this is not a critical failure
-
-    scores_file = os.path.join(
-        results_dir, results_api.score_result_filename(model.model_data())
-    )
-    _backup_existing(scores_file)
-    with open(scores_file, "w") as f:
-        json.dump(dataclasses.asdict(results_data), f, indent=2)
-
-    os.chmod(scores_file, 0o666)
-
-    if not args.not_log_queries:
-        if isinstance(task, json_task.JsonTask):
-            results_data.queries = util.update_json_task_queries(
-                task=task, model=model, scores=results_data.scores
+        output_dir = os.path.abspath(os.path.expanduser(args.output_dir))
+        if os.path.exists(json_path):
+            task = json_task.JsonTask(
+                json_path,
+                max_examples=args.max_examples,
+                # shot_list=list(map(int, [0])),
             )
         else:
-            results_data.queries = model.queries
+            task = util.load_programmatic_task(task_submodule_name)
 
-        queries_file = os.path.join(
-            results_dir, results_api.query_result_filename(model.model_data())
+        model = query_logging_model.QueryLoggingModel(model)
+        results_data = results_api.ResultsFileData(
+            scores=[],
+            task=results_api.TaskData(task_name),
+            model=model.model_data(),
+            queries=[],
         )
-        _backup_existing(queries_file)
-        with open(queries_file, "w") as f:
+
+        results = task.evaluate_model(model, max_examples=args.max_examples)
+
+        if isinstance(results, list):
+            results_list = results
+        else:
+            results_list = [results]
+
+        results_list = _sanitize_results(scores=results_list)
+
+        results_list = results_api.add_aggregate_scores(
+            task_name=task_name, scores=results_list
+        )
+
+        print(f"results:")
+        for r in results_list:
+            print(f"{pp.pformat(r.score_dict)}")
+
+        results_data.scores = results_list
+
+        results_dir = os.path.join(output_dir, os.path.split(module_path)[1], "results")
+        os.makedirs(results_dir, mode=0o777, exist_ok=True)
+
+        try:
+            os.chmod(results_dir, 0o777)
+        except PermissionError as e:
+            pass  # this is not a critical failure
+
+        scores_file = os.path.join(
+            results_dir, results_api.score_result_filename(model.model_data())
+        )
+        _backup_existing(scores_file)
+        with open(scores_file, "w") as f:
             json.dump(dataclasses.asdict(results_data), f, indent=2)
 
-        os.chmod(queries_file, 0o666)
+        os.chmod(scores_file, 0o666)
+
+        if not args.not_log_queries:
+            if isinstance(task, json_task.JsonTask):
+                results_data.queries = util.update_json_task_queries(
+                    task=task, model=model, scores=results_data.scores
+                )
+            else:
+                results_data.queries = model.queries
+
+            queries_file = os.path.join(
+                results_dir, results_api.query_result_filename(model.model_data())
+            )
+            _backup_existing(queries_file)
+            with open(queries_file, "w") as f:
+                json.dump(dataclasses.asdict(results_data), f, indent=2)
+
+            os.chmod(queries_file, 0o666)
