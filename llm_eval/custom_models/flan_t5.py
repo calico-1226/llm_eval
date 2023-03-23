@@ -124,10 +124,6 @@ class FlanT5(model.Model):
         else:
             input_list = inputs
 
-        generated = []
-        last = start = time.time()
-
-        num_inputs = len(input_list)
         tokenized_inputs = self._tokenizer(
             input_list,
             return_tensors="pt",
@@ -136,6 +132,8 @@ class FlanT5(model.Model):
             max_length=max_length,
         )
 
+        generated = []
+        num_inputs = len(input_list)
         if self._show_progress:
             bar = tqdm(range(0, num_inputs, self._batch_size))
             bar.set_description(f"Generating {num_inputs} texts")

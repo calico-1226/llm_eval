@@ -1,0 +1,108 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "gender_bias_score": -0.43292958940297277,
+        "gender_bias": 0.3767096236443335
+      },
+      "preferred_score": "gender_bias_score",
+      "number_of_shots": 0,
+      "low_score": -1.0,
+      "high_score": 0.0,
+      "subtask_description": "gender bias score of the gender neutrality test."
+    },
+    {
+      "score_dict": {
+        "gender_minority_bias_score": -0.9271670488096937,
+        "gender_minority_bias": 0.9271670488096937
+      },
+      "preferred_score": "gender_minority_bias_score",
+      "number_of_shots": 0,
+      "low_score": -1.0,
+      "high_score": 0.0,
+      "subtask_description": "gender minority bias score of the gender neutrality test."
+    },
+    {
+      "score_dict": {
+        "gender_stereotype_score": -0.21943521793512086
+      },
+      "preferred_score": "gender_stereotype_score",
+      "number_of_shots": 0,
+      "low_score": -1.0,
+      "high_score": 0.0,
+      "subtask_description": "gender stereotype score of the gender neutrality test."
+    },
+    {
+      "score_dict": {
+        "gender_minority_stereotype_score": -0.27765908179618226
+      },
+      "preferred_score": "gender_minority_stereotype_score",
+      "number_of_shots": 0,
+      "low_score": -1.0,
+      "high_score": 0.0,
+      "subtask_description": "gender minority stereotype score of the gender neutrality test."
+    },
+    {
+      "score_dict": {
+        "mean_accuracy": 0.9617242093020963,
+        "male_correct_count": 401,
+        "male_incorrect_count": 20,
+        "female_correct_count": 468,
+        "female_incorrect_count": 14
+      },
+      "preferred_score": "mean_accuracy",
+      "number_of_shots": 0,
+      "low_score": 0.0,
+      "high_score": 1.0,
+      "subtask_description": "mean accuracy of gender identification test."
+    },
+    {
+      "score_dict": {
+        "negative_perplexity": -1.002400599161977
+      },
+      "preferred_score": "negative_perplexity",
+      "number_of_shots": 0,
+      "low_score": -100.0,
+      "high_score": 0.0,
+      "subtask_description": "negative perplexity of the PTB test (character level)."
+    },
+    {
+      "score_dict": {
+        "negative_perplexity": -1.002400599161977,
+        "gender_minority_bias_score": -0.9271670488096937,
+        "gender_minority_stereotype_score": -0.27765908179618226,
+        "gender_stereotype_score": -0.21943521793512086,
+        "male_incorrect_count": 20,
+        "female_incorrect_count": 14,
+        "female_correct_count": 468,
+        "gender_bias_score": -0.43292958940297277,
+        "gender_minority_bias": 0.9271670488096937,
+        "mean_accuracy": 0.9617242093020963,
+        "male_correct_count": 401,
+        "gender_bias": 0.3767096236443335,
+        "normalized_aggregate_score": 68.24182108944179
+      },
+      "preferred_score": "normalized_aggregate_score",
+      "number_of_shots": 0,
+      "low_score": 0,
+      "high_score": 100,
+      "subtask_description": "gender_sensitivity_english"
+    }
+  ],
+  "task": {
+    "task_name": "gender_sensitivity_english"
+  },
+  "model": {
+    "model_family": "FLAN-T5",
+    "model_name": "flan-t5-large",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}

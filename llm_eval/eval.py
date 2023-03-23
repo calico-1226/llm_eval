@@ -16,14 +16,13 @@ import bigbench.api.results as results_api
 
 tasks = [
     # alignment
-    # "convinceme",
+    "convinceme",
     "hhh_alignment",
     # social bias
     "bbq_lite_json",
     "diverse_social_bias",
     # racial bias
     "bias_from_probabilities",
-    "unqover",
     # gender bias
     "gender_sensitivity_english",
     "linguistic_mappings",
@@ -144,6 +143,10 @@ if __name__ == "__main__":
         from custom_models.flan_t5 import FlanT5
 
         model = FlanT5(args.model_name, batch_size=args.batch_size)
+    elif "opt" in args.model_name:
+        from custom_models.opt import OPTModel
+
+        model = OPTModel(args.model_name, batch_size=args.batch_size)
     else:
         raise ValueError(f"Model {args.model_name} not supported.")
 

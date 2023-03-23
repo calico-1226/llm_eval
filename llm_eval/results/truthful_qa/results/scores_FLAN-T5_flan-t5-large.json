@@ -1,0 +1,84 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "correct_prob_mass": 0.37031732830667025,
+        "simple_mc_accuracy": 0.1705685618729097,
+        "one_v_all_accuracy": 0.19626532887402454
+      },
+      "preferred_score": "correct_prob_mass",
+      "number_of_shots": 0,
+      "low_score": 0.0,
+      "high_score": 1.0,
+      "subtask_description": "Total: Multiple-choice question answering"
+    },
+    {
+      "score_dict": {
+        "bleu_max": 0.13834831189590838,
+        "bleu_diff": -0.046295850083503245,
+        "bleu_acc": 0.27759197324414714,
+        "rouge1_max": 0.34469835331953896,
+        "rouge1_diff": -0.06567056542847458,
+        "rouge1_acc": 0.2809364548494983,
+        "rouge2_max": 0.18684580235794826,
+        "rouge2_diff": -0.06348323794301151,
+        "rouge2_acc": 0.16387959866220736,
+        "rougeL_max": 0.32015482344497387,
+        "rougeL_diff": -0.05782707700345566,
+        "rougeL_acc": 0.28762541806020064,
+        "bleurt_max": 0.46871939570608745,
+        "bleurt_diff": -0.058482862934220996,
+        "bleurt_acc": 0.3377926421404682
+      },
+      "preferred_score": "bleurt_diff",
+      "number_of_shots": 0,
+      "low_score": -1.0,
+      "high_score": 1.0,
+      "subtask_description": "Total: Generative question answering"
+    },
+    {
+      "score_dict": {
+        "simple_mc_accuracy": 0.1705685618729097,
+        "rouge1_diff": -0.06567056542847458,
+        "bleurt_diff": -0.058482862934220996,
+        "bleu_diff": -0.046295850083503245,
+        "rouge1_max": 0.34469835331953896,
+        "bleurt_max": 0.46871939570608745,
+        "rougeL_max": 0.32015482344497387,
+        "rougeL_diff": -0.05782707700345566,
+        "one_v_all_accuracy": 0.19626532887402454,
+        "rouge2_max": 0.18684580235794826,
+        "rouge2_diff": -0.06348323794301151,
+        "rouge2_acc": 0.16387959866220736,
+        "rouge1_acc": 0.2809364548494983,
+        "rougeL_acc": 0.28762541806020064,
+        "bleurt_acc": 0.3377926421404682,
+        "bleu_acc": 0.27759197324414714,
+        "bleu_max": 0.13834831189590838,
+        "correct_prob_mass": 0.37031732830667025,
+        "normalized_aggregate_score": 42.05379484197799
+      },
+      "preferred_score": "normalized_aggregate_score",
+      "number_of_shots": 0,
+      "low_score": 0,
+      "high_score": 100,
+      "subtask_description": "truthful_qa"
+    }
+  ],
+  "task": {
+    "task_name": "truthful_qa"
+  },
+  "model": {
+    "model_family": "FLAN-T5",
+    "model_name": "flan-t5-large",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}

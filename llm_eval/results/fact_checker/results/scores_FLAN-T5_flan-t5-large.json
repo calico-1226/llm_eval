@@ -1,0 +1,72 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "expected_calibration_error": 0.16955051787646272,
+        "calibration_multiple_choice_brier_score": 0.19916466865037727,
+        "multiple_choice_grade": 0.7183098591549296,
+        "normalized_aggregate_score": 43.66197183098593
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "fact_checker:covid19_scientific"
+    },
+    {
+      "score_dict": {
+        "expected_calibration_error": 0.1611871679036221,
+        "calibration_multiple_choice_brier_score": 0.24116441997518728,
+        "multiple_choice_grade": 0.6140350877192983,
+        "normalized_aggregate_score": 22.807017543859654
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "fact_checker:fever"
+    },
+    {
+      "score_dict": {
+        "expected_calibration_error": 0.34562159091596495,
+        "calibration_multiple_choice_brier_score": 0.35029825643007806,
+        "multiple_choice_grade": 0.51,
+        "normalized_aggregate_score": 2.0000000000000018
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "fact_checker:politifact"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.2635424483518809,
+        "multiple_choice_grade": 0.6141149822914093,
+        "expected_calibration_error": 0.2254530922320166,
+        "normalized_aggregate_score": 22.82299645828186
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "fact_checker"
+    }
+  ],
+  "task": {
+    "task_name": "fact_checker"
+  },
+  "model": {
+    "model_family": "FLAN-T5",
+    "model_name": "flan-t5-large",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}

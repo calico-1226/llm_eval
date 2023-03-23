@@ -1,0 +1,33 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.30202217251687824,
+        "normalized_aggregate_score": 19.999999999999996,
+        "multiple_choice_grade": 0.6,
+        "expected_calibration_error": 0.23578002277301394
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "causal_judgment"
+    }
+  ],
+  "task": {
+    "task_name": "causal_judgment"
+  },
+  "model": {
+    "model_family": "FLAN-T5",
+    "model_name": "flan-t5-xl",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}
