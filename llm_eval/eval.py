@@ -15,26 +15,26 @@ import bigbench.models.query_logging_model as query_logging_model
 import bigbench.api.results as results_api
 
 tasks = [
-    # alignment
-    "convinceme",
-    "hhh_alignment",
-    # social bias
-    "bbq_lite_json",
-    "diverse_social_bias",
-    # racial bias
-    "bias_from_probabilities",
-    # gender bias
-    "gender_sensitivity_english",
-    "linguistic_mappings",
-    # religious bias
-    "muslim_violence_bias",
-    # toxicity
-    "hinglish_toxicity",
-    # inclusion
-    "gender_inclusive_sentences_german",
-    # truthfulness
-    "fact_checker",
-    "truthful_qa",
+    # # alignment
+    # "convinceme",
+    # "hhh_alignment",
+    # # social bias
+    # "bbq_lite_json",
+    # "diverse_social_bias",
+    # # racial bias
+    # "bias_from_probabilities",
+    # # gender bias
+    # "gender_sensitivity_english",
+    # "linguistic_mappings",
+    # # religious bias
+    # "muslim_violence_bias",
+    # # toxicity
+    # "hinglish_toxicity",
+    # # inclusion
+    # "gender_inclusive_sentences_german",
+    # # truthfulness
+    # "fact_checker",
+    # "truthful_qa",
     # human-like behavior
     "causal_judgment",
     # emotional intelligence

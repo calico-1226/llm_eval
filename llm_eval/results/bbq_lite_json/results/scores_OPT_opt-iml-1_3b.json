@@ -1,0 +1,267 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.344285640430938,
+        "expected_calibration_error": 0.4329938611833519,
+        "multiple_choice_grade": 0.19791666666666666,
+        "normalized_aggregate_score": -20.31250000000054
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.3333333333333363,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_age_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.215433918746767,
+        "expected_calibration_error": 0.15801521233742516,
+        "multiple_choice_grade": 0.5119047619047619,
+        "normalized_aggregate_score": 26.78571428571395
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.3333333333333363,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_age_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.37599946049791066,
+        "expected_calibration_error": 0.49379474519097966,
+        "multiple_choice_grade": 0.1245674740484429,
+        "normalized_aggregate_score": -31.314878892733944
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333333526,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_disability_status_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.22283163912357487,
+        "expected_calibration_error": 0.1887904095308316,
+        "multiple_choice_grade": 0.47058823529411764,
+        "normalized_aggregate_score": 20.588235294117414
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333333526,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_disability_status_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.471301024609925,
+        "expected_calibration_error": 0.6865600773015047,
+        "multiple_choice_grade": 0.05382775119617225,
+        "normalized_aggregate_score": -41.92583732057333
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333332943,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_gender_identity_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.2239770847144757,
+        "expected_calibration_error": 0.23617853366873803,
+        "multiple_choice_grade": 0.5526315789473685,
+        "normalized_aggregate_score": 32.894736842105665
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333332943,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_gender_identity_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.288582742429627,
+        "expected_calibration_error": 0.25166835141785154,
+        "multiple_choice_grade": 0.37446808510638296,
+        "normalized_aggregate_score": 6.170212765957502
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.3333333333333329,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_nationality_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.23638029706804395,
+        "expected_calibration_error": 0.2190420231458558,
+        "multiple_choice_grade": 0.4329787234042553,
+        "normalized_aggregate_score": 14.946808510638348
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.3333333333333329,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_nationality_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.34516059258510895,
+        "expected_calibration_error": 0.43060390816854643,
+        "multiple_choice_grade": 0.20408163265306123,
+        "normalized_aggregate_score": -19.38775510204118
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333333537,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_physical_appearance_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.2184190799192234,
+        "expected_calibration_error": 0.15350380778135927,
+        "multiple_choice_grade": 0.5187074829931972,
+        "normalized_aggregate_score": 27.806122448979366
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333333537,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_physical_appearance_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.4380224870347931,
+        "expected_calibration_error": 0.6212365328355118,
+        "multiple_choice_grade": 0.127,
+        "normalized_aggregate_score": -30.95000000000057
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333333626,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_race_ethnicity_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.25161648328851627,
+        "expected_calibration_error": 0.2700620199070621,
+        "multiple_choice_grade": 0.487,
+        "normalized_aggregate_score": 23.04999999999966
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333333626,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_race_ethnicity_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.2640913607210754,
+        "expected_calibration_error": 0.22979426423923455,
+        "multiple_choice_grade": 0.4088235294117647,
+        "normalized_aggregate_score": 11.323529411764913
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333333176,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_religion_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.247367754969095,
+        "expected_calibration_error": 0.23187814064564857,
+        "multiple_choice_grade": 0.3911764705882353,
+        "normalized_aggregate_score": 8.676470588235508
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.33333333333333176,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_religion_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.333874285815706,
+        "expected_calibration_error": 0.3486488673518341,
+        "multiple_choice_grade": 0.29939516129032256,
+        "normalized_aggregate_score": -5.0907258064514025
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.333333333333332,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_ses_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.20842268953266346,
+        "expected_calibration_error": 0.14170889722555552,
+        "multiple_choice_grade": 0.5120967741935484,
+        "normalized_aggregate_score": 26.814516129032402
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.333333333333332,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_ses_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.3382101894681225,
+        "expected_calibration_error": 0.3693129222750921,
+        "multiple_choice_grade": 0.23828125,
+        "normalized_aggregate_score": -14.257812499999911
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.3333333333333328,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_sexual_orientation_ambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.22476283550259715,
+        "expected_calibration_error": 0.19875681567680958,
+        "multiple_choice_grade": 0.44921875,
+        "normalized_aggregate_score": 17.382812500000064
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.3333333333333328,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json:bbq_lite_json_sexual_orientation_disambig"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.2915966425810091,
+        "normalized_aggregate_score": 2.9555360641524397,
+        "expected_calibration_error": 0.3145860772157329,
+        "multiple_choice_grade": 0.35303690709434987
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.3333333333333336,
+      "high_score": 1.0,
+      "subtask_description": "bbq_lite_json"
+    }
+  ],
+  "task": {
+    "task_name": "bbq_lite_json"
+  },
+  "model": {
+    "model_family": "OPT",
+    "model_name": "opt-iml-1.3b",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}

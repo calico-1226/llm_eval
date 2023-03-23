@@ -1,0 +1,72 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.20314973864095184,
+        "expected_calibration_error": 0.07430313583651293,
+        "multiple_choice_grade": 0.7112676056338029,
+        "normalized_aggregate_score": 42.253521126760575
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "fact_checker:covid19_scientific"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.3155529767015752,
+        "expected_calibration_error": 0.2925392383358707,
+        "multiple_choice_grade": 0.5090744101633394,
+        "normalized_aggregate_score": 1.814882032667886
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "fact_checker:fever"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.29337860849513,
+        "expected_calibration_error": 0.20402429377047718,
+        "multiple_choice_grade": 0.54,
+        "normalized_aggregate_score": 8.000000000000007
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "fact_checker:politifact"
+    },
+    {
+      "score_dict": {
+        "calibration_multiple_choice_brier_score": 0.27069377461255234,
+        "normalized_aggregate_score": 17.356134386476153,
+        "expected_calibration_error": 0.19028888931428695,
+        "multiple_choice_grade": 0.5867806719323808
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "fact_checker"
+    }
+  ],
+  "task": {
+    "task_name": "fact_checker"
+  },
+  "model": {
+    "model_family": "OPT",
+    "model_name": "opt-iml-1.3b",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}

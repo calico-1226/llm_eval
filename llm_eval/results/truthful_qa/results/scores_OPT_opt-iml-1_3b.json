@@ -1,0 +1,84 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "correct_prob_mass": 0.35926460521200865,
+        "simple_mc_accuracy": 0.16722408026755853,
+        "one_v_all_accuracy": 0.16659499920369483
+      },
+      "preferred_score": "correct_prob_mass",
+      "number_of_shots": 0,
+      "low_score": 0.0,
+      "high_score": 1.0,
+      "subtask_description": "Total: Multiple-choice question answering"
+    },
+    {
+      "score_dict": {
+        "bleu_max": 0.009222551647525494,
+        "bleu_diff": -0.0001330130297269188,
+        "bleu_acc": 0.32441471571906355,
+        "rouge1_max": 0.07694289175682499,
+        "rouge1_diff": 0.00109022400391595,
+        "rouge1_acc": 0.43478260869565216,
+        "rouge2_max": 0.007486320038236905,
+        "rouge2_diff": -0.0006486725269777232,
+        "rouge2_acc": 0.10367892976588629,
+        "rougeL_max": 0.06347083256731555,
+        "rougeL_diff": -0.00046362862444249543,
+        "rougeL_acc": 0.4280936454849498,
+        "bleurt_max": 0.23526174607484238,
+        "bleurt_diff": 0.0025320110412744377,
+        "bleurt_acc": 0.5518394648829431
+      },
+      "preferred_score": "bleurt_diff",
+      "number_of_shots": 0,
+      "low_score": -1.0,
+      "high_score": 1.0,
+      "subtask_description": "Total: Generative question answering"
+    },
+    {
+      "score_dict": {
+        "bleu_max": 0.009222551647525494,
+        "bleurt_max": 0.23526174607484238,
+        "rouge1_diff": 0.00109022400391595,
+        "bleu_diff": -0.0001330130297269188,
+        "rougeL_acc": 0.4280936454849498,
+        "rougeL_diff": -0.00046362862444249543,
+        "correct_prob_mass": 0.35926460521200865,
+        "rouge1_acc": 0.43478260869565216,
+        "rouge1_max": 0.07694289175682499,
+        "bleurt_diff": 0.0025320110412744377,
+        "rouge2_acc": 0.10367892976588629,
+        "bleu_acc": 0.32441471571906355,
+        "rouge2_max": 0.007486320038236905,
+        "rouge2_diff": -0.0006486725269777232,
+        "one_v_all_accuracy": 0.16659499920369483,
+        "rougeL_max": 0.06347083256731555,
+        "simple_mc_accuracy": 0.16722408026755853,
+        "bleurt_acc": 0.5518394648829431,
+        "normalized_aggregate_score": 43.02653053663229
+      },
+      "preferred_score": "normalized_aggregate_score",
+      "number_of_shots": 0,
+      "low_score": 0,
+      "high_score": 100,
+      "subtask_description": "truthful_qa"
+    }
+  ],
+  "task": {
+    "task_name": "truthful_qa"
+  },
+  "model": {
+    "model_family": "OPT",
+    "model_name": "opt-iml-1.3b",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}

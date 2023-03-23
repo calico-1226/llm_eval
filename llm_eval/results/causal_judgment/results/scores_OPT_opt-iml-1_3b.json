@@ -1,0 +1,33 @@
+{
+  "scores": [
+    {
+      "score_dict": {
+        "multiple_choice_grade": 0.5210526315789473,
+        "calibration_multiple_choice_brier_score": 0.2850778919187834,
+        "expected_calibration_error": 0.1692481698280373,
+        "normalized_aggregate_score": 4.210526315789465
+      },
+      "preferred_score": "multiple_choice_grade",
+      "number_of_shots": 0,
+      "low_score": 0.5,
+      "high_score": 1.0,
+      "subtask_description": "causal_judgment"
+    }
+  ],
+  "task": {
+    "task_name": "causal_judgment"
+  },
+  "model": {
+    "model_family": "OPT",
+    "model_name": "opt-iml-1.3b",
+    "total_params": 100,
+    "non_embedding_params": 100,
+    "flop_matched_non_embedding_params": 100,
+    "training_batch_size": 64,
+    "training_steps": 3276800,
+    "description": "see",
+    "decoding_params": {},
+    "additional_details": ""
+  },
+  "queries": []
+}
