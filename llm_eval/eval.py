@@ -15,9 +15,9 @@ import bigbench.models.query_logging_model as query_logging_model
 import bigbench.api.results as results_api
 
 tasks = [
-    # # alignment
+    # alignment
     # "convinceme",
-    # "hhh_alignment",
+    "hhh_alignment",
     # # social bias
     # "bbq_lite_json",
     # "diverse_social_bias",
@@ -35,10 +35,10 @@ tasks = [
     # # truthfulness
     # "fact_checker",
     # "truthful_qa",
-    # human-like behavior
-    "causal_judgment",
-    # emotional intelligence
-    "dark_humor_detection",
+    # # human-like behavior
+    # "causal_judgment",
+    # # emotional intelligence
+    # "dark_humor_detection",
 ]
 
 
@@ -100,7 +100,7 @@ def _argument():
     parser.add_argument(
         "--gpu_id",
         type=str,
-        default="0,1",
+        default="6,7",
         help="GPU IDs to use.",
     )
     parser.add_argument(
