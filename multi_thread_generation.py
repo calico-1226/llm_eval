@@ -1,18 +1,14 @@
 import os
 import threading
 import json
-
-# os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
-os.environ["https_proxy"] = "http://127.0.0.1:7899"
-os.environ["http_proxy"] = "http://127.0.0.1:7899"
+from copy import deepcopy
 
 from typing import List, Dict
-from tqdm import tqdm
 
 import torch
-from torch.utils.data import TensorDataset, DataLoader
 
 from generate_text import generate_text
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 
 def multi_thread_generation(
@@ -22,6 +18,9 @@ def multi_thread_generation(
     batch_size: int = 16,
     max_length: int = 256,
 ):
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+
     num_thread = len(gpu_ids)
     num_input_per_thread = len(input_list) // num_thread + 1
 
@@ -30,15 +29,25 @@ def multi_thread_generation(
     results = []
 
     def process_thread(gpu_id: str, input_list: List[str], show_progress: bool = False):
+        thread_name = threading.current_thread().name
+
+        device = torch.device(f"cuda:{gpu_id}")
+        model_copy = deepcopy(model).to(device)
+        tokenizer_copy = deepcopy(tokenizer)
+        print(
+            f"{thread_name} is using GPU {gpu_id} to generate {len(input_list)} inputs."
+        )
         generated = generate_text(
-            input_list,
-            model_name,
+            input_list=input_list,
+            model=model_copy,
+            tokenizer=tokenizer_copy,
             batch_size=batch_size,
             max_length=max_length,
-            gpu_id=gpu_id,
+            device=device,
             show_progress=show_progress,
         )
         with lock:
+            print(f"{thread_name} complete {len(generated)} generations.")
             results.extend(generated)
 
     threads = []
@@ -59,13 +68,13 @@ def multi_thread_generation(
 
 if __name__ == "__main__":
     data_dir = "red-team-attempts"
-    with open(f"/mnt/datasets/{data_dir}-single.json", "r") as f:
+    with open(f"/root/data/datasets/hh_rlhf/{data_dir}-single.json", "r") as f:
         custom_dataset = json.load(f)
 
     results = multi_thread_generation(
-        gpu_ids=["0", "1"],
-        model_name="google/flan-t5-xl",
-        input_list=custom_dataset["train"][:25],
+        gpu_ids=["0", "1", "2", "3"],
+        model_name="google/flan-t5-large",
+        input_list=custom_dataset["train"][:60],
     )
 
     for result in results:

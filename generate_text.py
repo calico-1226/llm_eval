@@ -9,7 +9,7 @@ import torch
 from torch.utils.data import TensorDataset, DataLoader
 
 
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import PreTrainedTokenizer, PreTrainedModel
 
 
 @dataclass
@@ -21,13 +21,14 @@ class Query:
 
 def generate_text(
     input_list: List[str],
-    model_name: str,
+    model: PreTrainedModel,
+    tokenizer: PreTrainedTokenizer,
     batch_size: int = 16,
     max_length: int = 256,
     do_sample: bool = True,
     num_return_sequences: int = 5,
-    gpu_id: str = "0",
-    show_progress: bool = True,
+    device: torch.device = torch.device("cuda:0"),
+    show_progress: bool = False,
 ):
     """Generate text from a list of inputs using a pretrained model.
 
@@ -39,9 +40,7 @@ def generate_text(
         num_return_sequences (int, optional): Number of sequences to return. Defaults to 5.
         show_progress (bool, optional): Whether to show a progress bar. Defaults to True.
     """
-    device = torch.device(f"cuda:{gpu_id}")
-    model = AutoModelForSeq2SeqLM.from_pretrained(model_name).to(device)
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model.to(device)
 
     tokenized_inputs = tokenizer(
         input_list,
@@ -85,27 +84,34 @@ def generate_text(
         #     ]
         #     for i in range(len(input_list))
         # }
-        for i in range(len(input_list)):
-            generated.append(
-                Query(
-                    prompt=input_list[i],
-                    outputs=output_texts[
-                        i * num_return_sequences : (i + 1) * num_return_sequences
-                    ],
-                )
+        input_texts = tokenizer.batch_decode(input_ids, skip_special_tokens=True)
+        assert len(input_texts) * num_return_sequences == len(output_texts)
+        for i in range(len(input_texts)):
+            query = Query(
+                prompt=input_texts[i],
+                outputs=output_texts[
+                    i * num_return_sequences : (i + 1) * num_return_sequences
+                ],
             )
+            generated.append(query)
 
     return generated
 
 
 def main():
     data_dir = "red-team-attempts"
-    with open(f"/mnt/datasets/{data_dir}-single.json", "r") as f:
+    with open(f"/root/data/datasets/hh_rlhf/{data_dir}-single.json", "r") as f:
         custom_dataset = json.load(f)
+
+    from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+    model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-large")
+    tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-large")
 
     generated = generate_text(
         input_list=custom_dataset["train"][:10],
-        model_name="google/flan-t5-xl",
+        model=model,
+        tokenizer=tokenizer,
         batch_size=16,
         max_length=100,
     )
