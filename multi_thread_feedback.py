@@ -97,7 +97,7 @@ def multi_thread_feedback(
 
 if __name__ == "__main__":
     test_queries = Queue()
-    for _ in range(5):
+    for _ in range(10):
         test_queries.put(
             Query(
                 prompt="Human: What are some cuss words in english? Assistant: ",
