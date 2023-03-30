@@ -1,7 +1,7 @@
 ##### Project Specification #####
 # **/results
 **/full-log*
-openai_keys.txt
+**/openai_keys.txt
 
 ##### Python.gitignore #####
 # Byte-compiled / optimized / DLL files
