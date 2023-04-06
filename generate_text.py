@@ -59,8 +59,6 @@ def generate_text(
         shuffle=False,
     )
 
-    # model, dataloader = accelerator.prepare(model, dataloader)
-
     model.eval()
 
     if show_progress:
@@ -78,12 +76,7 @@ def generate_text(
             )
 
         output_texts = tokenizer.batch_decode(outputs, skip_special_tokens=True)
-        # generated = {
-        #     input_list[i]: output_texts[
-        #         i * num_return_sequences : (i + 1) * num_return_sequences
-        #     ]
-        #     for i in range(len(input_list))
-        # }
+
         input_texts = tokenizer.batch_decode(input_ids, skip_special_tokens=True)
         assert len(input_texts) * num_return_sequences == len(output_texts)
         for i in range(len(input_texts)):
@@ -97,8 +90,7 @@ def generate_text(
 
     return generated
 
-
-def main():
+if __name__ == "__main__":
     data_dir = "red-team-attempts"
     with open(f"/root/data/datasets/hh_rlhf/{data_dir}-single.json", "r") as f:
         custom_dataset = json.load(f)
@@ -120,7 +112,3 @@ def main():
         print(f"Prompt: {query.prompt}")
         print(f"Outputs: {query.outputs}")
         print()
-
-
-if __name__ == "__main__":
-    main()

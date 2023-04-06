@@ -38,7 +38,7 @@ class ChatGPTFeedback:
             {"role": "user", "content": user}
         ]
 
-        feedback = output = openai.ChatCompletion.create(
+        feedback = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=messages,
             temperature=0,

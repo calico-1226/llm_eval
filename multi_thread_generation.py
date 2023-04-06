@@ -67,14 +67,13 @@ def multi_thread_generation(
 
 
 if __name__ == "__main__":
-    data_dir = "red-team-attempts"
-    with open(f"/root/data/datasets/hh_rlhf/{data_dir}-single.json", "r") as f:
-        custom_dataset = json.load(f)
+    from datasets import load_dataset
+    ds = load_dataset("/mnt/datasets/safe-rlhf", split="train")
 
     results = multi_thread_generation(
-        gpu_ids=["0", "1", "2", "3"],
+        gpu_ids=["4", "5"],
         model_name="google/flan-t5-large",
-        input_list=custom_dataset["train"][:60],
+        input_list=ds["input"][:20],
     )
 
     for result in results:
